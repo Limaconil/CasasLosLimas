@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Casas Rurales Los Limas</title>
+
+  <!-- FullCalendar CSS + JS -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+
+  <style>
+    .banner-principal {
+  position: relative;
+  background-image: url('https://www.conilplaya.com/conil-chalets/alojamiento-920/chalet-piscina.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.banner-principal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5); /* capa oscura para mejorar contraste */
+  z-index: 1;
+}
+
+.banner-texto {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.banner-texto h1 {
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+}
+
+.banner-texto p {
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .casa {
+      padding: 40px 20px;
+      border-bottom: 1px solid #ddd;
+    }
+    .casa h2 {
+      margin-bottom: 10px;
+       text-align: center;
+    }
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+    .galeria img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.galeria img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+    .calendario {
+      max-width: 600px;
+      margin: auto;
+      margin-bottom: 40px;
+    }
+.info-reserva {
+  background: #f0f4f8;
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.info-card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+}
+
+.info-card h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.info-card p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.info-card a {
+  color: #0077cc;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.info-card a:hover {
+  text-decoration: underline;
+}
+.resenas-reales {
+  background: #f8f8f8;
+  padding: 60px 20px;
+  text-align: center;
+}
+.resenas-reales h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #333;
+}
+  </style>
+</head>
+<body>
+<section class="banner-principal">
+  <div class="banner-texto">
+    <h1>Tu escapada ideal en Conil</h1>
+    <p>Calma, naturaleza, confort y tranquilidad. Esperamos que disfrutéis de unas vacaciones inolvidables. Os animo a explorar las maravillas del entorno rural; además, nuestro huerto ecológico es una joya que ofrece una experiencia única y sostenible, seguro que os encantará.</p>
+  </div>
+</section>
+<section class="info-reserva">
+  <div class="info-card">
+    <h2>Reserva tu estancia</h2>
+    <p>¿Listo para desconectar? Haz tu reserva ahora y disfruta de un entorno natural único, ideal para descansar en familia o en pareja.</p>
+    
+    <p><strong>📞 Teléfono:</strong> <a href="tel:+34638002460">+34 638 002 460</a></p>
+    <p><strong>📍 Ubicación:</strong> Conil de la Frontera, Cádiz, España</p>
+    <a class="btn-whatsapp" href="https://wa.me/3463800240" target="_blank">
+      💬 Reservar por WhatsApp
+    </a>
+  </div>
+</section>
+  <!-- CASA 1 -->
+  <div class="casa">
+    <h2>Casa Mango</h2>
+    <div class="galeria">
+      <img src="https://www.conilplaya.com/conil-chalets/alojamiento-1039/piscina.jpg" />
+      <img src="https://www.conilplaya.com/conil-chalets/alojamiento-1039/casa-conil.jpg" />
+      <img src="https://www.conilplaya.com/conil-chalets/alojamiento-1039/dormitorio.jpg"/>
+      <img src="https://www.conilplaya.com/conil-chalets/alojamiento-1039/dormitorio-2.jpg"/>
+      <img src="https://www.conilplaya.com/conil-chalets/alojamiento-1039/porche-3.jpg"/>
+    </div>
+    <div id="calendar1" class="calendario"></div>
+  </div>
+
+  <!-- CASA 2 -->
+  <div class="casa">
+    <h2>Casa Olivo</h2>
+    <div class="galeria">
+      <img src="https://www.conilplaya.com/conil-chalets/alojamiento-1012/piscina1.jpg" />
+      <img src="https://www.conilplaya.com/conil-chalets/alojamiento-1012/porche2.jpg" />
+      <img src="https://www.conilplaya.com/conil-chalets/alojamiento-1012/salon_comedor.jpg" />
+      <img src="https://www.conilplaya.com/conil-chalets/alojamiento-1012/dormitorio1.jpg" />
+      <img src="https://www.conilplaya.com/conil-chalets/alojamiento-1012/dormitorio2.jpg" />
+      <img src="https://www.conilplaya.com/conil-chalets/alojamiento-1012/cuarto_bano.jpg" />
+    </div>
+    <div id="calendar2" class="calendario"></div>
+  </div>
+
+  <!-- CASA 3 -->
+  <div class="casa">
+    <h2>Casa Nogal</h2>
+    <div class="galeria">
+      <img src="https://www.conilplaya.com/conil-chalets/alojamiento-920/chalet-piscina.jpg" />
+      <img src="https://www.conilplaya.com/conil-chalets/alojamiento-920/tumbonas.jpg" />
+      <img src="https://www.conilplaya.com/conil-chalets/alojamiento-920/salon-comedor-cocina.jpg" />
+      <img src="https://www.conilplaya.com/conil-chalets/alojamiento-920/dormitorio.jpg" />
+      <img src="https://www.conilplaya.com/conil-chalets/alojamiento-920/dormitorio2.jpg" />
+      <img src="https://www.conilplaya.com/conil-chalets/alojamiento-920/cuarto_bano.jpg" />
+    </div>
+    <div id="calendar3" class="calendario"></div>
+  </div>
+<section class="resenas-reales">
+  <h2>Lo que dicen nuestros huéspedes en Google</h2>
+  <div class="elfsight-app-b50b9cee-a177-4abb-a147-47cdfb278c78" data-elfsight-app-lazy></div>
+  <script src="https://static.elfsight.com/platform/platform.js" async></script>
+</section>
+  <script>
+    let puedeEditar = false;
+
+    function guardarEventos(storageKey, eventos) {
+      const eventosActuales = eventos.map(e => ({
+        title: e.title,
+        start: e.startStr,
+        end: e.endStr,
+        color: e.backgroundColor || e.color || 'red'
+      }));
+      localStorage.setItem(storageKey, JSON.stringify(eventosActuales));
+    }
+
+    function iniciarCalendarioConStorage(id, storageKey) {
+      const calendarEl = document.getElementById(id);
+      const savedEvents = localStorage.getItem(storageKey);
+      const eventos = savedEvents ? JSON.parse(savedEvents) : [];
+
+      const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        locale: 'es',
+        selectable: true,
+        select: function(info) {
+          if (!puedeEditar) {
+            const clave = prompt("Introduce la clave para modificar el calendario:");
+            if (clave === "4444") {
+              puedeEditar = true;
+            } else {
+              alert("Contraseña incorrecta. Solo puedes ver el calendario.");
+              calendar.unselect();
+              return;
+            }
+          }
+          const ocupado = confirm(`¿Marcar como ocupado del ${info.startStr} al ${info.endStr}?`);
+          if (ocupado) {
+            calendar.addEvent({
+              title: 'Ocupado',
+              start: info.startStr,
+              end: info.endStr,
+              color: 'red'
+            });
+            guardarEventos(storageKey, calendar.getEvents());
+          }
+        },
+        eventClick: function(info) {
+          if (!puedeEditar) {
+            const clave = prompt("Introduce la clave para modificar el calendario:");
+            if (clave === "4444") {
+              puedeEditar = true;
+            } else {
+              alert("Contraseña incorrecta. No puedes modificar este evento.");
+              return;
+            }
+          }
+          if (confirm('¿Eliminar esta reserva?')) {
+            info.event.remove();
+            guardarEventos(storageKey, calendar.getEvents());
+          }
+        },
+        events: eventos
+      });
+
+      calendar.render();
+    }
+
+    // Iniciar todos los calendarios
+    iniciarCalendarioConStorage('calendar1', 'casa1');
+    iniciarCalendarioConStorage('calendar2', 'casa2');
+    iniciarCalendarioConStorage('calendar3', 'casa3');
+  </script>
+
+</body>
+</html>
+
